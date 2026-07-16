@@ -1,113 +1,112 @@
-
-#imporando funções
+# Importando funções
 import random
 import string
 import time
 
-nameA = "Palavra Chave"
-
-#aleatoriedade
+# Função para gerar senha
 def gerar_senha():
     comprimento = int(input("Digite o comprimento da senha desejada: "))
     time.sleep(1)
-    caracteres = string.ascii_letters + string.digits + string.punctuationb 
-    senha_gerada = ''.join(random.choice(caracteres) for _ in range(comprimento))
+
+    caracteres = string.ascii_letters + string.digits + string.punctuation
+    senha_gerada = ""
+
+    for i in range(comprimento):
+        senha_gerada = senha_gerada + random.choice(caracteres)
+
     print("Sua nova senha aleatória é: " + senha_gerada)
-    time.sleep(3)
+    time.sleep(2)
     print(" ")
-    add = input("Desenha adicionar essa senha em sua lista (sim/não)?")
+
+    add = input("Deseja adicionar essa senha em sua lista (sim/não)? ")
+
     if add.lower() == "sim":
         print(" ")
         time.sleep(1)
-        nameS = input("Digite o nome da sua senha: ")
+        nameS = input("Digite o nome da senha: ")
         password[nameS] = senha_gerada
-        time.sleep(2)
-        print(" ")
+        time.sleep(1)
         print("Senhas:", password)
     else:
-        time.sleep(1)
-        print("Ok, agrademos por testar!")
-        
-#"não temos essa opçãao." 
+        print("Ok, agradecemos por testar!")
+
+# Função para opção inválida
 def sorry():
     print("Sinto muito...")
     time.sleep(1)
-    print("Não temos essa opção.")        
+    print("Não temos essa opção.")
 
 password = {}
+
 while True:
-    time.sleep(2)
+
     print("Escolha um dos comandos:")
-    print("1- Mostrar")
-    print("2- Sugerir")
-    print("3- Adicionar")
-    print("4- Remover")
-    command = input("-")
+    print("1 - Mostrar")
+    print("2 - Sugerir")
+    print("3 - Adicionar")
+    print("4 - Remover")
+
+    command = input("- ")
+
     print(" ")
-    time.sleep(2)
+    time.sleep(1)
 
     if command == "1":
-        time.sleep(1)
+
         if not password:
-            print("Sem senhas para mostrar")
-            time.sleep(2)
+            print("Sem senhas para mostrar.")
         else:
-            print("Aqui estão as suas senhas salvas até agora:")
-            time.sleep(2)
-            print(password)
-            time.sleep(2)
-            print(" ")
+            print("Aqui estão as suas senhas:")
+            for nome in password:
+                print(nome + " : " + password[nome])
+
     elif command == "2":
+
         gerar_senha()
 
     elif command == "3":
+
         nameS3 = input("Digite o nome da senha: ")
         time.sleep(1)
         word = input("Digite a senha: ")
+
         password[nameS3] = word
+
         print(" ")
-        time.sleep(2)
         print("Senhas:", password)
-        print(" ")
-        time.sleep(2)
 
     elif command == "4":
+
         if not password:
-            print("Sem senhas para excluir")
-            time.sleep(2)
+            print("Sem senhas para excluir.")
         else:
-            nameS4 = input("Digite o nome da senha que deseja remover:  ")
-            time.sleep(1)
-            if nameS4 in pasword:
+            nameS4 = input("Digite o nome da senha que deseja remover: ")
+
+            if nameS4 in password:
                 del password[nameS4]
-                print("Senha para " + nameS4 + " removida com sucesso!")
-                print(" ")
-                time.sleep(2)
+                print("Senha removida com sucesso!")
             else:
-                print("Senha não encontrada nas senhas salvas.")
-            
+                print("Senha não encontrada.")
+
     elif command == "5":
+
         if not password:
-            print("Sem senhas para excluir")
-            time.sleep(2)
+            print("Não há senhas para apagar.")
         else:
-            time.sleep(1)
             password.clear()
-            print("Senhas:", password)
+            print("Todas as senhas foram apagadas.")
 
     elif command == "6":
+
+        print("Muito obrigado por usar o programa!")
         time.sleep(1)
-        print("Muito obrigado por vir!")
-        time.sleep(2)
         print("Espero te ver de novo!")
-        time.sleep(3)
-        print(" ")
         print("（^∀^●）ﾉｼ")
         break
 
-
     else:
+
         sorry()
+
     time.sleep(2)
-    print(" ")
     print(" ")
