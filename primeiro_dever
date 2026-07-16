@@ -1,0 +1,113 @@
+
+#imporando funções
+import random
+import string
+import time
+
+nameA = "Palavra Chave"
+
+#aleatoriedade
+def gerar_senha():
+    comprimento = int(input("Digite o comprimento da senha desejada: "))
+    time.sleep(1)
+    caracteres = string.ascii_letters + string.digits + string.punctuationb 
+    senha_gerada = ''.join(random.choice(caracteres) for _ in range(comprimento))
+    print("Sua nova senha aleatória é: " + senha_gerada)
+    time.sleep(3)
+    print(" ")
+    add = input("Desenha adicionar essa senha em sua lista (sim/não)?")
+    if add.lower() == "sim":
+        print(" ")
+        time.sleep(1)
+        nameS = input("Digite o nome da sua senha: ")
+        password[nameS] = senha_gerada
+        time.sleep(2)
+        print(" ")
+        print("Senhas:", password)
+    else:
+        time.sleep(1)
+        print("Ok, agrademos por testar!")
+        
+#"não temos essa opçãao." 
+def sorry():
+    print("Sinto muito...")
+    time.sleep(1)
+    print("Não temos essa opção.")        
+
+password = {}
+while True:
+    time.sleep(2)
+    print("Escolha um dos comandos:")
+    print("1- Mostrar")
+    print("2- Sugerir")
+    print("3- Adicionar")
+    print("4- Remover")
+    command = input("-")
+    print(" ")
+    time.sleep(2)
+
+    if command == "1":
+        time.sleep(1)
+        if not password:
+            print("Sem senhas para mostrar")
+            time.sleep(2)
+        else:
+            print("Aqui estão as suas senhas salvas até agora:")
+            time.sleep(2)
+            print(password)
+            time.sleep(2)
+            print(" ")
+    elif command == "2":
+        gerar_senha()
+
+    elif command == "3":
+        nameS3 = input("Digite o nome da senha: ")
+        time.sleep(1)
+        word = input("Digite a senha: ")
+        password[nameS3] = word
+        print(" ")
+        time.sleep(2)
+        print("Senhas:", password)
+        print(" ")
+        time.sleep(2)
+
+    elif command == "4":
+        if not password:
+            print("Sem senhas para excluir")
+            time.sleep(2)
+        else:
+            nameS4 = input("Digite o nome da senha que deseja remover:  ")
+            time.sleep(1)
+            if nameS4 in pasword:
+                del password[nameS4]
+                print("Senha para " + nameS4 + " removida com sucesso!")
+                print(" ")
+                time.sleep(2)
+            else:
+                print("Senha não encontrada nas senhas salvas.")
+            
+    elif command == "5":
+        if not password:
+            print("Sem senhas para excluir")
+            time.sleep(2)
+        else:
+            time.sleep(1)
+            password.clear()
+            print("Senhas:", password)
+
+    elif command == "6":
+        time.sleep(1)
+        print("Muito obrigado por vir!")
+        time.sleep(2)
+        print("Espero te ver de novo!")
+        time.sleep(3)
+        print(" ")
+        print("（^∀^●）ﾉｼ")
+        break
+
+
+    else:
+        sorry()
+    time.sleep(2)
+    print(" ")
+    print(" ")
