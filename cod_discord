@@ -33,4 +33,4 @@ async def on_message(message):
     else:
         await message.channel.send(message.content)
 
-client.run("MTUyOTY1NTgyMDc2ODUxMDE1Ng.GGdiUK.r7Te04YP6zjKGnJxTWPynNseB43pZwyfiFfr0Q")
+client.run("SEU TOKEN")
