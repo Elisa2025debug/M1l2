@@ -1,0 +1,31 @@
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='$', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'Estamos logados como {bot.user}')
+
+@bot.command()
+async def hello(ctx):
+    await ctx.send(
+    f'Olá! Eu sou o bot {bot.user}.\n'
+    'Meu público-alvo são pessoas em geral que querem aprender sobre o descarte correto de resíduos perigosos, como vidro quebrado.'
+)
+
+@bot.command()
+async def vidro(ctx):
+    await ctx.send(
+    "Como descartar vidro quebrado com segurança:\n\n"
+    "• Junte os cacos com cuidado usando uma vassoura e uma pá.\n"
+    "• Coloque-os em uma caixa de papelão ou embrulhe-os em várias folhas de jornal.\n"
+    "• Feche bem a embalagem com fita adesiva.\n"
+    "• Escreva 'VIDRO QUEBRADO' na embalagem para alertar os coletores.\n"
+    "• Descarte conforme a coleta de resíduos da sua cidade. Se houver coleta seletiva para vidro, siga as orientações locais."
+)
+
+bot.run("TOKEN AQUI")
